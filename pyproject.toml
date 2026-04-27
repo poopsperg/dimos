@@ -92,7 +92,8 @@ ignore_missing_imports = true
 testpaths = ["tests"]
 asyncio_mode = "auto"
 # removed --cov flags so quick test runs don't always generate coverage reports
-addopts = "-v"
+# -x: stop on first failure — saves time when iterating locally
+addopts = "-v -x"
 
 [tool.coverage.run]
 source = ["dimos"]
