@@ -1,3 +1,5 @@
+# Personal fork of dimensionalOS/dimos — tweaked for my own dev workflow
+
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.backends.legacy:build"
@@ -46,6 +48,7 @@ dev = [
     "ruff>=0.1.0",
     "mypy>=1.7.0",
     "pre-commit>=3.5.0",
+    "ipython>=8.0.0",  # handy for interactive debugging sessions
 ]
 ros = [
     "rclpy",
@@ -65,7 +68,7 @@ Repository = "https://github.com/dimensionalOS/dimos"
 Issues = "https://github.com/dimensionalOS/dimos/issues"
 
 [tool.setuptools.packages.find]
-where = ["."] 
+where = ["."]
 include = ["dimos*"]
 
 [tool.ruff]
@@ -88,7 +91,8 @@ ignore_missing_imports = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
-addopts = "--cov=dimos --cov-report=term-missing"
+# removed --cov flags so quick test runs don't always generate coverage reports
+addopts = "-v"
 
 [tool.coverage.run]
 source = ["dimos"]
